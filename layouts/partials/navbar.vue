@@ -4,24 +4,220 @@
       <nav>
         <div class="logo">Gergo Nagy</div>
       </nav>
-      <div class="homepage__menu__burger">
+      <div class="homepage__menu__burger" @click="isNavOpened = ! isNavOpened">
         <i></i>
         <i></i>
         <i></i>
       </div>
     </header>
-    <div class="homepage__overlay" style="display: none;">
-      <span>Home</span>
-      <span>About me</span>
-      <span>Contact me</span>
-      <span>Blog</span>
+    <div class="homepage__overlay" v-bind:class="{ open: isNavOpened }">
+      <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/">Home</nuxt-link></span>
+      <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/about">About me</nuxt-link></span>
+      <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/contact">Contact me</nuxt-link></span>
+      <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/blog">Blog</nuxt-link></span>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+     isNavOpened: false
+    }
+  }
+}
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../../assets/styles/_variables.scss";
+.homepage {
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+
+    &__burger {
+      cursor: pointer;
+      z-index: 9998;
+      cursor: pointer;
+
+      i {
+        display: block;
+        width: 42px;
+        height: 2px;
+        margin: 8px;
+        background-color: $font-color;
+
+        &:nth-child(n) {
+          -moz-transition: -moz-transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5), background 0.3s ease;
+          -o-transition: -o-transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5), background 0.3s ease;
+          -webkit-transition: -webkit-transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5), background 0.3s ease;
+          transition: transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5), background 0.3s ease;
+        }
+      }
+
+      &:hover {
+        i:nth-child(1) {
+          -moz-transform: translate3d(0, -4px, 0);
+          -ms-transform: translate3d(0, -4px, 0);
+          -webkit-transform: translate3d(0, -4px, 0);
+          transform: translate3d(0, -4px, 0);
+        }
+
+        i:nth-child(3) {
+          -moz-transform: translate3d(0, 4px, 0);
+          -ms-transform: translate3d(0, 4px, 0);
+          -webkit-transform: translate3d(0, 4px, 0);
+          transform: translate3d(0, 4px, 0);
+        }
+      }
+
+      &--st-1 {
+        display: none;
+        animation: rotate-back-in .8s cubic-bezier(.2, .86, .35, 1) forwards;
+        -webkit-animation: rotate-back-in .8s cubic-bezier(.2, .86, .35, 1) forwards;
+
+        i:nth-child(1) {
+          -moz-transform: translate3d(0, 9px, 0);
+          -ms-transform: translate3d(0, 9px, 0);
+          -webkit-transform: translate3d(0, 9px, 0);
+          transform: translate3d(0, 9px, 0);
+        }
+      }
+
+      &--st-2 {
+        animation: rotate-back-out .85s cubic-bezier(.2, .86, .35, 1) forwards;
+        -webkit-animation: rotate-back-out .85s cubic-bezier(.2, .86, .35, 1) forwards;
+
+        i:nth-child(1) {
+          -ms-transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
+          -webkit-transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
+          transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
+        }
+
+        i:nth-of-type(2) {
+          opacity: 0;
+        }
+
+        i:nth-child(3) {
+          -moz-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
+          -ms-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
+          -webkit-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
+          transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
+        }
+      }
+    }
+  }
+   &__overlay {
+    visibility: hidden;
+    position: fixed;
+    background-color: #333;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    -moz-transition: -moz-transform 0.45s cubic-bezier(0.45, 0, 0, 1);
+    -o-transition: -o-transform 0.45s cubic-bezier(0.45, 0, 0, 1);
+    -webkit-transition: -webkit-transform 0.45s cubic-bezier(0.45, 0, 0, 1);
+    transition: transform 0.45s cubic-bezier(0.45, 0, 0, 1);
+
+    &.open {
+      visibility: visible;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    span {
+      width: 90%;
+      max-width: 600px;
+      margin: 0 auto;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.3, 0, 0, 1);
+      transition: transform 0.3s cubic-bezier(0.3, 0, 0, 1);
+
+      &:nth-of-type(1) {
+        -webkit-transition-delay: 0.36s;
+        transition-delay: 0.36s;
+      }
+
+      &:nth-of-type(2) {
+        -webkit-transition-delay: 0.45s;
+        transition-delay: 0.45s;
+      }
+
+      &:nth-of-type(3) {
+        -webkit-transition-delay: 0.6s;
+        transition-delay: 0.6s;
+      }
+
+      &:nth-of-type(4) {
+        -webkit-transition-delay: 0.65s;
+        transition-delay: 0.65s;
+      }
+    }
+
+    &__close {
+      position: absolute;
+      color: #fff;
+      top: 0px;
+      right: 30px;
+
+      &:hover {
+        cursor: $font-color;
+      }
+    }
+  }
+}
+  @keyframes rotate-back-out {
+  0% {
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  45% {
+    -moz-transform: rotate(185deg);
+    -ms-transform: rotate(185deg);
+    -webkit-transform: rotate(185deg);
+    transform: rotate(185deg);
+  }
+
+  100% {
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotate-back-in {
+  0% {
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  45% {
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
 </style>
