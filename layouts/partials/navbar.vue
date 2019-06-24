@@ -4,7 +4,7 @@
       <nav>
         <div class="logo"><nuxt-link to="/">Gergo Nagy</nuxt-link></div>
       </nav>
-      <div class="homepage__menu__burger" @click="isNavOpened = ! isNavOpened">
+      <div class="homepage__menu__burger" @click="isNavOpened = ! isNavOpened" v-bind:class="{ 'st-1': isNavOpened, 'st-2': isNavOpened }">
         <i></i>
         <i></i>
         <i></i>
@@ -47,17 +47,16 @@ export default {
 
       i {
         display: block;
-        width: 42px;
+        width: 35px;
         height: 2px;
         margin: 8px;
         background-color: $font-color;
-
-        &:nth-child(n) {
-          -moz-transition: -moz-transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5), background 0.3s ease;
-          -o-transition: -o-transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5), background 0.3s ease;
-          -webkit-transition: -webkit-transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5), background 0.3s ease;
-          transition: transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5), background 0.3s ease;
-        }
+      }
+      i:nth-child(n) {
+            -moz-transition: -moz-transform .45s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
+            -o-transition: -o-transform .45s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
+            -webkit-transition: -webkit-transform .45s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
+            transition: transform .45s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
       }
 
       &:hover {
@@ -75,62 +74,62 @@ export default {
           transform: translate3d(0, 4px, 0);
         }
       }
-
-      &--st-1 {
-        display: none;
-        animation: rotate-back-in .8s cubic-bezier(.2, .86, .35, 1) forwards;
-        -webkit-animation: rotate-back-in .8s cubic-bezier(.2, .86, .35, 1) forwards;
-
-        i:nth-child(1) {
-          -moz-transform: translate3d(0, 9px, 0);
-          -ms-transform: translate3d(0, 9px, 0);
-          -webkit-transform: translate3d(0, 9px, 0);
-          transform: translate3d(0, 9px, 0);
-        }
+      &.st-1 {
+        animation: rotate-back-in .8s cubic-bezier(.2,.86,.35,1) forwards;
+        -webkit-animation: rotate-back-in .8s cubic-bezier(.2,.86,.35,1) forwards;
       }
-
-      &--st-2 {
-        animation: rotate-back-out .85s cubic-bezier(.2, .86, .35, 1) forwards;
-        -webkit-animation: rotate-back-out .85s cubic-bezier(.2, .86, .35, 1) forwards;
-
+      &.st-2 {
+        animation: rotate-back-out .85s cubic-bezier(.2,.86,.35,1) forwards;
+        -webkit-animation: rotate-back-out .85s cubic-bezier(.2,.86,.35,1) forwards;
         i:nth-child(1) {
-          -ms-transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
-          -webkit-transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
-          transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
+            -moz-transform: translate3d(0,10px,0) rotate(45deg) scale(1.5);
+            -ms-transform: translate3d(0,10px,0) rotate(45deg) scale(1.5);
+            -webkit-transform: translate3d(0,10px,0) rotate(45deg) scale(1.5);
+            transform: translate3d(0,10px,0) rotate(45deg) scale(1.5);
         }
-
-        i:nth-of-type(2) {
-          opacity: 0;
+        i:nth-child(2) {
+            opacity: 0;
         }
-
         i:nth-child(3) {
-          -moz-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
-          -ms-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
-          -webkit-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
-          transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
+          -moz-transform: translate3d(0,-10px,0) rotate(-45deg) scale(1.5);
+          -ms-transform: translate3d(0,-10px,0) rotate(-45deg) scale(1.5);
+          -webkit-transform: translate3d(0,-10px,0) rotate(-45deg) scale(1.5);
+          transform: translate3d(0,-10px,0) rotate(-45deg) scale(1.5);
+        }
+        &:hover {
+          i:nth-child(1) {
+            transform: translate3d(0,10px,0) rotate(50deg) scale(1.5);
+          }
+          i:nth-child(3) {
+          -moz-transform: translate3d(0,-10px,0) rotate(-50deg) scale(1.5);
+          -ms-transform: translate3d(0,-10px,0) rotate(-50deg) scale(1.5);
+          -webkit-transform: translate3d(0,-10px,0) rotate(-50deg) scale(1.5);
+          transform: translate3d(0,-10px,0) rotate(-50deg) scale(1.5);
+          }
         }
       }
     }
   }
    &__overlay {
-    visibility: hidden;
     position: fixed;
     background-color: #333;
-    z-index: 100;
+    top: 100vh;
+    left: 0;
     width: 100%;
-    height: 100vh;
-    -moz-transition: -moz-transform 0.45s cubic-bezier(0.45, 0, 0, 1);
-    -o-transition: -o-transform 0.45s cubic-bezier(0.45, 0, 0, 1);
-    -webkit-transition: -webkit-transform 0.45s cubic-bezier(0.45, 0, 0, 1);
-    transition: transform 0.45s cubic-bezier(0.45, 0, 0, 1);
+    height: 100%;
+    -webkit-transition: top .4s;
+    -moz-transition: top .4s;
+    -ms-transition: top .4s;
+    -o-transition: top .4s;
+    transition: top .4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     &.open {
-      visibility: visible;
       top: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      
     }
 
     span {
