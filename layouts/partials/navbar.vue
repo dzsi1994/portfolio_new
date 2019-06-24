@@ -11,10 +11,12 @@
       </div>
     </header>
     <div class="homepage__overlay" v-bind:class="{ open: isNavOpened }">
+    <nav style="width: 100%;">
       <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/">Home</nuxt-link></span>
       <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/about">About me</nuxt-link></span>
       <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/contact">Contact me</nuxt-link></span>
       <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/blog">Blog</nuxt-link></span>
+      </nav>
     </div>
   </div>
 </template>
@@ -135,13 +137,56 @@ export default {
       width: 90%;
       max-width: 600px;
       margin: 0 auto;
-      height: 140px;
       display: flex;
       align-items: center;
       justify-content: center;
       -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.3, 0, 0, 1);
       transition: transform 0.3s cubic-bezier(0.3, 0, 0, 1);
+      font-size: 2em;
+      background-color: rgba(0,0,0,.02);
+      position: relative;
+      padding: 30px 0;
+      &:before, &:after {
+        content: " ";
+        opacity: 0;
+        height: 75%;
+        width: 100%;
+        left: 0;
+        position: absolute;
+        -moz-transition: -moz-transform .4s cubic-bezier(.65,.15,0,1);
+        -o-transition: -o-transform .4s cubic-bezier(.65,.15,0,1);
+        -webkit-transition: -webkit-transform .4s cubic-bezier(.65,.15,0,1);
+        transition: transform .4s cubic-bezier(.65,.15,0,1);
+      }
+      &:before {
+            top: 0;
+           -moz-transform: translate3d(-100%,0,0);
+           -ms-transform: translate3d(-100%,0,0);
+           -webkit-transform: translate3d(-100%,0,0);
+           transform: translate3d(-100%,0,0);
+           background-color: #2e2e2e;
+           z-index: -1;
+      }
+      &:after {
+        bottom: 0;
+        -moz-transform: translate3d(100%,0,0);
+        -ms-transform: translate3d(100%,0,0);
+        -webkit-transform: translate3d(100%,0,0);
+        transform: translate3d(100%,0,0);
+        -moz-transition-delay: 125ms;
+        -o-transition-delay: 125ms;
+        -webkit-transition-delay: 125ms;
+        transition-delay: 125ms;
+        background-color: #2d2d2d;
+        z-index: -2;
+      }
+      &:hover {
+        &:after, &:before {
+        opacity: 1;  
+        transform: translate3d(0,0,0);
 
+        }
+      }
       &:nth-of-type(1) {
         -webkit-transition-delay: 0.36s;
         transition-delay: 0.36s;
@@ -160,6 +205,9 @@ export default {
       &:nth-of-type(4) {
         -webkit-transition-delay: 0.65s;
         transition-delay: 0.65s;
+      }
+      a {
+        border-bottom: none;
       }
     }
 
