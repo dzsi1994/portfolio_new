@@ -11,6 +11,10 @@
 export default {}
 </script>
 
-<style >
+<style>
+
+footer {
+  padding: 60px 0;
+}
 </style>
 
