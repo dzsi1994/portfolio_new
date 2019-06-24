@@ -1,10 +1,12 @@
 <template>
   <footer class="container">
     <p class="copyright">© 2019 Copyright Gergo Nagy. All rights reserved.</p>
-    <p class="details">This site is built with Vue.js +
-    <a>Nuxt.js</a> and hosted on
-    Netlify. The source code is hosted on
-    <a target="_blank">Github</a>.</p>
+    <p class="details">
+      This site is built with Vue.js +
+      <a>Nuxt.js</a> and hosted on
+      Netlify. The source code is hosted on
+      <a target="_blank">Github</a>.
+    </p>
   </footer>
 </template>
 
@@ -12,8 +14,7 @@
 export default {}
 </script>
 
-<style>
-
+<style lang="scss" scoped>
 footer {
   padding: 60px 0;
   text-align: center;

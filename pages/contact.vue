@@ -2,11 +2,16 @@
   <div class="container">
     <div class="contact">
       <div class="contact__text">
-        <h1>Front-End Development & Consulting</h1>
+        <h1>Hi, it’s nice to meet you.</h1>
         <p>
-          I’m a freelance front-end UI developer and trainer specializing in responsive Web design, modern CSS, progressive
-          enhancement, and accessibility. I work with my clients to create interfaces and design systems that work for
-          everyone, and that are optimized for accessibility and speed. Find out more about my work or hire me.
+          Do you have a project that could use my front-end skills?
+          My favorite projects have been those where I’ve joined a team from the get-go and worked closely with the designers to bring great user experiences to life.
+          If you believe a modern, performant, and accessible front-end foundation for your UI is worth investing in, then you're already my favorite client!
+        </p>
+        <p>
+          Do you have a project that could use my front-end skills?
+          My favorite projects have been those where I’ve joined a team from the get-go and worked closely with the designers to bring great user experiences to life.
+          If you believe a modern, performant, and accessible front-end foundation for your UI is worth investing in, then you're already my favorite client!
         </p>
       </div>
       <form name="contact" data-netlify="true" class="contact__form">
@@ -46,6 +51,7 @@ export default {
   &__text {
     grid-row: 1;
     grid-column: 2 / 7;
+    line-height: 32px;
   }
   &__form {
     grid-column: 8 / 12;
@@ -58,7 +64,7 @@ export default {
       input {
         font-family: inherit;
         width: 100%;
-        background: #312d3c;
+        background: #241f2e;
         color: #fff;
         border-radius: 8px;
         border: 2px solid transparent;
@@ -71,11 +77,13 @@ export default {
       textarea {
         font-family: inherit;
         width: 100%;
-        background: #312d3c;
+        background: #241f2e;
         color: #fff;
         padding: 1rem;
         border-radius: 8px;
         border: 2px solid transparent;
+        height: 160px;
+        resize: none;
         &:focus {
           border-color: #5be1bd;
           outline: none;
@@ -102,11 +110,18 @@ export default {
       line-height: 1.4;
       position: relative;
       text-align: center;
-      -webkit-transition: 70ms;
-      transition: 70ms;
       position: relative;
       min-width: 200px;
       text-transform: uppercase;
+      -webkit-transition: -webkit-transform 0.25s ease;
+      transition: -webkit-transform 0.25s ease;
+      transition: transform 0.25s ease;
+      transition: transform 0.25s ease, -webkit-transform 0.25s ease;
+      cursor: pointer;
+      &:hover {
+        transform: translateY(10px);
+        -webkit-transform: translateY(10px);
+      }
     }
   }
 }

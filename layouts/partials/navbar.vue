@@ -2,20 +2,34 @@
   <div>
     <header class="container homepage__menu">
       <nav>
-        <div class="logo"><nuxt-link to="/">Gergo Nagy</nuxt-link></div>
+        <div class="logo">
+          <nuxt-link to="/">Gergo Nagy</nuxt-link>
+        </div>
       </nav>
-      <div class="homepage__menu__burger" @click="isNavOpened = ! isNavOpened" v-bind:class="{ 'st-1': isNavOpened, 'st-2': isNavOpened }">
+      <div
+        class="homepage__menu__burger"
+        @click="isNavOpened = ! isNavOpened"
+        v-bind:class="{ 'st-1': isNavOpened, 'st-2': isNavOpened }"
+      >
         <i></i>
         <i></i>
         <i></i>
       </div>
     </header>
     <div class="homepage__overlay" v-bind:class="{ open: isNavOpened }">
-    <nav style="width: 100%;">
-      <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/">Home</nuxt-link></span>
-      <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/about">About me</nuxt-link></span>
-      <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/contact">Contact me</nuxt-link></span>
-      <span @click="isNavOpened = ! isNavOpened"><nuxt-link to="/blog">Blog</nuxt-link></span>
+      <nav style="width: 100%;">
+        <span @click="isNavOpened = ! isNavOpened">
+          <nuxt-link to="/">Home</nuxt-link>
+        </span>
+        <span @click="isNavOpened = ! isNavOpened">
+          <nuxt-link to="/about">About me</nuxt-link>
+        </span>
+        <span @click="isNavOpened = ! isNavOpened">
+          <nuxt-link to="/contact">Contact me</nuxt-link>
+        </span>
+        <span @click="isNavOpened = ! isNavOpened">
+          <nuxt-link to="/blog">Blog</nuxt-link>
+        </span>
       </nav>
     </div>
   </div>
@@ -25,14 +39,14 @@
 export default {
   data() {
     return {
-     isNavOpened: false
+      isNavOpened: false
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import "../../assets/styles/_variables.scss";
+@import '../../assets/styles/_variables.scss';
 .homepage {
   &__menu {
     display: flex;
@@ -53,10 +67,16 @@ export default {
         background-color: $font-color;
       }
       i:nth-child(n) {
-            -moz-transition: -moz-transform .45s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
-            -o-transition: -o-transform .45s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
-            -webkit-transition: -webkit-transform .45s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
-            transition: transform .45s cubic-bezier(.43,.77,.15,1.5),background .3s ease;
+        -moz-transition: -moz-transform 0.45s
+            cubic-bezier(0.43, 0.77, 0.15, 1.5),
+          background 0.3s ease;
+        -o-transition: -o-transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5),
+          background 0.3s ease;
+        -webkit-transition: -webkit-transform 0.45s
+            cubic-bezier(0.43, 0.77, 0.15, 1.5),
+          background 0.3s ease;
+        transition: transform 0.45s cubic-bezier(0.43, 0.77, 0.15, 1.5),
+          background 0.3s ease;
       }
 
       &:hover {
@@ -75,61 +95,64 @@ export default {
         }
       }
       &.st-1 {
-        animation: rotate-back-in .8s cubic-bezier(.2,.86,.35,1) forwards;
-        -webkit-animation: rotate-back-in .8s cubic-bezier(.2,.86,.35,1) forwards;
+        animation: rotate-back-in 0.8s cubic-bezier(0.2, 0.86, 0.35, 1) forwards;
+        -webkit-animation: rotate-back-in 0.8s cubic-bezier(0.2, 0.86, 0.35, 1)
+          forwards;
       }
       &.st-2 {
-        animation: rotate-back-out .85s cubic-bezier(.2,.86,.35,1) forwards;
-        -webkit-animation: rotate-back-out .85s cubic-bezier(.2,.86,.35,1) forwards;
+        animation: rotate-back-out 0.85s cubic-bezier(0.2, 0.86, 0.35, 1)
+          forwards;
+        -webkit-animation: rotate-back-out 0.85s
+          cubic-bezier(0.2, 0.86, 0.35, 1) forwards;
         i:nth-child(1) {
-            -moz-transform: translate3d(0,10px,0) rotate(45deg) scale(1.5);
-            -ms-transform: translate3d(0,10px,0) rotate(45deg) scale(1.5);
-            -webkit-transform: translate3d(0,10px,0) rotate(45deg) scale(1.5);
-            transform: translate3d(0,10px,0) rotate(45deg) scale(1.5);
+          -moz-transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
+          -ms-transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
+          -webkit-transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
+          transform: translate3d(0, 10px, 0) rotate(45deg) scale(1.5);
         }
         i:nth-child(2) {
-            opacity: 0;
+          opacity: 0;
         }
         i:nth-child(3) {
-          -moz-transform: translate3d(0,-10px,0) rotate(-45deg) scale(1.5);
-          -ms-transform: translate3d(0,-10px,0) rotate(-45deg) scale(1.5);
-          -webkit-transform: translate3d(0,-10px,0) rotate(-45deg) scale(1.5);
-          transform: translate3d(0,-10px,0) rotate(-45deg) scale(1.5);
+          -moz-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
+          -ms-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
+          -webkit-transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
+          transform: translate3d(0, -10px, 0) rotate(-45deg) scale(1.5);
         }
         &:hover {
           i:nth-child(1) {
-            transform: translate3d(0,10px,0) rotate(50deg) scale(1.5);
+            transform: translate3d(0, 10px, 0) rotate(50deg) scale(1.5);
           }
           i:nth-child(3) {
-          -moz-transform: translate3d(0,-10px,0) rotate(-50deg) scale(1.5);
-          -ms-transform: translate3d(0,-10px,0) rotate(-50deg) scale(1.5);
-          -webkit-transform: translate3d(0,-10px,0) rotate(-50deg) scale(1.5);
-          transform: translate3d(0,-10px,0) rotate(-50deg) scale(1.5);
+            -moz-transform: translate3d(0, -10px, 0) rotate(-50deg) scale(1.5);
+            -ms-transform: translate3d(0, -10px, 0) rotate(-50deg) scale(1.5);
+            -webkit-transform: translate3d(0, -10px, 0) rotate(-50deg)
+              scale(1.5);
+            transform: translate3d(0, -10px, 0) rotate(-50deg) scale(1.5);
           }
         }
       }
     }
   }
-   &__overlay {
+  &__overlay {
     position: fixed;
     background-color: #333;
     top: 100vh;
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-transition: top .4s;
-    -moz-transition: top .4s;
-    -ms-transition: top .4s;
-    -o-transition: top .4s;
-    transition: top .4s;
+    -webkit-transition: top 0.4s;
+    -moz-transition: top 0.4s;
+    -ms-transition: top 0.4s;
+    -o-transition: top 0.4s;
+    transition: top 0.4s;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    z-index: 9;
     &.open {
       top: 0;
-      
     }
 
     span {
@@ -142,36 +165,38 @@ export default {
       -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.3, 0, 0, 1);
       transition: transform 0.3s cubic-bezier(0.3, 0, 0, 1);
       font-size: 2em;
-      background-color: rgba(0,0,0,.02);
+      background-color: rgba(0, 0, 0, 0.02);
       position: relative;
       padding: 30px 0;
-      &:before, &:after {
-        content: " ";
+      &:before,
+      &:after {
+        content: ' ';
         opacity: 0;
         height: 75%;
         width: 100%;
         left: 0;
         position: absolute;
-        -moz-transition: -moz-transform .4s cubic-bezier(.65,.15,0,1);
-        -o-transition: -o-transform .4s cubic-bezier(.65,.15,0,1);
-        -webkit-transition: -webkit-transform .4s cubic-bezier(.65,.15,0,1);
-        transition: transform .4s cubic-bezier(.65,.15,0,1);
+        -moz-transition: -moz-transform 0.4s cubic-bezier(0.65, 0.15, 0, 1);
+        -o-transition: -o-transform 0.4s cubic-bezier(0.65, 0.15, 0, 1);
+        -webkit-transition: -webkit-transform 0.4s
+          cubic-bezier(0.65, 0.15, 0, 1);
+        transition: transform 0.4s cubic-bezier(0.65, 0.15, 0, 1);
       }
       &:before {
-            top: 0;
-           -moz-transform: translate3d(-100%,0,0);
-           -ms-transform: translate3d(-100%,0,0);
-           -webkit-transform: translate3d(-100%,0,0);
-           transform: translate3d(-100%,0,0);
-           background-color: #2e2e2e;
-           z-index: -1;
+        top: 0;
+        -moz-transform: translate3d(-100%, 0, 0);
+        -ms-transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-100%, 0, 0);
+        background-color: #2e2e2e;
+        z-index: -1;
       }
       &:after {
         bottom: 0;
-        -moz-transform: translate3d(100%,0,0);
-        -ms-transform: translate3d(100%,0,0);
-        -webkit-transform: translate3d(100%,0,0);
-        transform: translate3d(100%,0,0);
+        -moz-transform: translate3d(100%, 0, 0);
+        -ms-transform: translate3d(100%, 0, 0);
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0);
         -moz-transition-delay: 125ms;
         -o-transition-delay: 125ms;
         -webkit-transition-delay: 125ms;
@@ -180,10 +205,10 @@ export default {
         z-index: -2;
       }
       &:hover {
-        &:after, &:before {
-        opacity: 1;  
-        transform: translate3d(0,0,0);
-
+        &:after,
+        &:before {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
         }
       }
       &:nth-of-type(1) {
@@ -222,7 +247,7 @@ export default {
     }
   }
 }
-  @keyframes rotate-back-out {
+@keyframes rotate-back-out {
   0% {
     -moz-transform: rotate(0);
     -ms-transform: rotate(0);
