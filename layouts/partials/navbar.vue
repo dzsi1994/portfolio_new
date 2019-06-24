@@ -2,7 +2,7 @@
   <div>
     <header class="container homepage__menu">
       <nav>
-        <div class="logo">Gergo Nagy</div>
+        <div class="logo"><nuxt-link to="/">Gergo Nagy</nuxt-link></div>
       </nav>
       <div class="homepage__menu__burger" @click="isNavOpened = ! isNavOpened">
         <i></i>

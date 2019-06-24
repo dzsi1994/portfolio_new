@@ -1,5 +1,5 @@
 <template>
-  <div class="container">dsa</div>
+  <div class="container">This is the index page</div>
 </template>
 
 <script>
