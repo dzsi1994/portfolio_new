@@ -4,7 +4,7 @@
     <p class="details">This site is built with Vue.js +
     <a>Nuxt.js</a> and hosted on
     Netlify. The source code is hosted on
-    <a>Github</a>.</p>
+    <a target="_blank">Github</a>.</p>
   </footer>
 </template>
 
