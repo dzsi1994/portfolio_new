@@ -3,29 +3,32 @@ body {
   color: $font-color;
   font-family: $font-primary;
   font-size: 18px;
-  margin:0;
+  margin: 0;
   padding: 0;
+  caret-color: #5be1bd;
 }
+
 ::selection {
   background: #5be1bd;
   color: #fff;
 }
 
-html::-webkit-scrollbar {
-  width: 0.8em;
+html::-webkit-scrollbar-track {
+  background: $purple--darkerer;
 }
 
-html::-webkit-scrollbar-track {
-  background: #ebeff5;
+html::-webkit-scrollbar {
+  width: 10px;
 }
+
 
 html::-webkit-scrollbar-thumb {
-  background: #f1f1f1;
-  border-radius: 30px;
-  -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25), inset -2px -2px 2px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25), inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+  background: -webkit-gradient(linear, left top, left bottom, from(#5be1bd), to(#5be190));
+  background: linear-gradient(to bottom, #5be1bd, #5be190);
+  border-radius: 15px;
+  -webkit-box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .25), inset -2px -2px 2px rgba(0, 0, 0, .25);
+  box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .25), inset -2px -2px 2px rgba(0, 0, 0, .25);
 }
-
 
 h1,
 h2,
@@ -42,14 +45,15 @@ h6,
 .serif {
   font-weight: 900;
   letter-spacing: 1px;
-  font-family: 'Fira Sans', arial, sans-serif;
-  caret-color: #5be190;
+  font-family: "Fira Sans", arial, sans-serif;
 }
+
 a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
   color: unset;
   text-decoration: none;
+
   &:hover {
     background: -webkit-gradient(linear, left top, right top, from(#5be1bd), to(#5be190));
     background: linear-gradient(to right, #5be1bd, #5be190);
@@ -60,6 +64,7 @@ a {
     text-shadow: none;
   }
 }
+
 .container {
   width: calc(100% - 40px);
   margin: 0 auto;
