@@ -2,9 +2,9 @@
   <div class="container">This is the index page changes.
       <ul>
       <li v-for="(post, index) in users" :key="index">
-        <NuxtLink :to="{ name: 'posts-id', params: { id: post.id } }">
+        <nuxt-link :to="{ name: `blog-id`, params: { id: post.blog_id }}">
           {{ post.blog_title }}
-        </NuxtLink>
+        </nuxt-link>
       </li>
     </ul>
     <!-- <button @click="getData">getData</button> -->
