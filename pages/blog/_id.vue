@@ -1,12 +1,6 @@
 <template>
-  <div class="container">This is the index page changes.
-      <ul>
-      <li v-for="(post, index) in users" :key="index">
-        <NuxtLink :to="{ name: 'posts-id', params: { id: post.id } }">
-          {{ post.blog_title }}
-        </NuxtLink>
-      </li>
-    </ul>
+  <div class="container">This is the blog_id page changes.
+      
     <!-- <button @click="getData">getData</button> -->
   </div>
   
@@ -15,12 +9,12 @@
 <script>
 import axios from 'axios'
 export default {
-  asyncData () {
+  /* asyncData () {
     return axios.get('https://portfolio-2c1cd.firebaseio.com/blogs.json')
     .then((res) => {
       return { users: res.data }
     })
-  },
+  }, */
 }
 </script>
 
