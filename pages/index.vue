@@ -7,31 +7,25 @@
         </NuxtLink>
       </li>
     </ul>
-    <button @click="getData">getData</button>
+    <!-- <button @click="getData">getData</button> -->
   </div>
   
 </template>
 
 <script>
 import {firebase} from '~/plugins/firebase.js'
+import axios from 'axios'
 export default {
-  asyncData() {
- firebase.firestore()
-        .collection('blogs')
-        .get().then((querySnapshot) => {
-          return this.users = querySnapshot.docs.map(doc =>
-              Object.assign({ id: doc.id }, doc.data())
-    )
-  }).catch(err => console.error(err));
-},
-  data() {
-  return {
-    users: []
-  }
-},
+  asyncData () {
+    return axios.get('https://portfolio-2c1cd.firebaseio.com/blogs.json')
+    .then((res) => {
+      return { users: res.data }
+    })
+  }  
+,
 
   methods: {
-    getData() {
+    /* getData() {
       firebase.firestore()
         .collection('blogs')
         .get().then((querySnapshot) => {
@@ -39,7 +33,7 @@ export default {
               Object.assign({ id: doc.id }, doc.data())
     )
   })
-    }
+    } */
   }
 }
 </script>
