@@ -8,7 +8,7 @@
       </nav>
       <div
         class="homepage__menu__burger"
-        @click="isNavOpened = ! isNavOpened"
+        @click="isNavOpened = !isNavOpened"
         v-bind:class="{ 'st-1': isNavOpened, 'st-2': isNavOpened }"
       >
         <i></i>
@@ -18,17 +18,20 @@
     </header>
     <div class="homepage__overlay" v-bind:class="{ open: isNavOpened }">
       <nav style="width: 100%;">
-        <span @click="isNavOpened = ! isNavOpened">
+        <span @click="isNavOpened = !isNavOpened">
           <nuxt-link to="/">Home</nuxt-link>
         </span>
-        <span @click="isNavOpened = ! isNavOpened">
+        <span @click="isNavOpened = !isNavOpened">
           <nuxt-link to="/about">About me</nuxt-link>
         </span>
-        <span @click="isNavOpened = ! isNavOpened">
+        <span @click="isNavOpened = !isNavOpened">
           <nuxt-link to="/contact">Contact me</nuxt-link>
         </span>
-        <span @click="isNavOpened = ! isNavOpened">
+        <span @click="isNavOpened = !isNavOpened">
           <nuxt-link to="/blog">Blog</nuxt-link>
+        </span>
+        <span @click="isNavOpened = !isNavOpened">
+          <nuxt-link to="/uses">Uses</nuxt-link>
         </span>
       </nav>
     </div>
