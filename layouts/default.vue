@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbarVue></navbarVue>
-    <nuxt/>
+    <nuxt />
     <footer-vue></footer-vue>
   </div>
 </template>
@@ -18,5 +18,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
