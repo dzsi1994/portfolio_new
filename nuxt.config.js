@@ -1,5 +1,18 @@
 module.exports = {
+  'google-gtag': {
+    id: 'UA-163433923-1',
+    config: {
+      anonymize_ip: true, // anonymize IP
+      send_page_view: false, // might be necessary to avoid duplicated page track on page reload
+      linker: {
+        domains: ['https://www.gergonagy.tech', 'http://localhost:3000/']
+      }
+    },
+    debug: true, // enable to track in dev mode
+    disableAutoPageTrack: false // disable if you don't want to track each page route with router.afterEach(...).
+  },
   mode: 'universal',
+
   /*
    ** Headers of the page
    */
@@ -52,11 +65,9 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-gtag'
   ],
-  googleAnalytics: {
-    id: 'UA-163433923-1'
-  },
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
