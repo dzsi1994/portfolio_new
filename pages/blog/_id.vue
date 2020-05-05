@@ -1,13 +1,13 @@
 <template>
-  <div class="container">This is the blog_id page changes.
-      
+  <div class="container">
+    This is the blog_id page changes.
+
     <!-- <button @click="getData">getData</button> -->
   </div>
-  
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 export default {
   /* asyncData () {
     return axios.get('https://portfolio-2c1cd.firebaseio.com/blogs.json')
@@ -15,8 +15,7 @@ export default {
       return { users: res.data }
     })
   }, */
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>

@@ -4,28 +4,22 @@
       <div class="contact__text">
         <h1>Hi, it’s nice to meet you.</h1>
         <p>
-          Do you have a project that could use my front-end skills?
-          My favorite projects have been those where I’ve joined a team from the get-go and worked closely with the designers to bring great user experiences to life.
-          If you believe a modern, performant, and accessible front-end foundation for your UI is worth investing in, then you're already my favorite client!
+          Do you have a project that could use my front-end skills? My favorite
+          projects have been those where I’ve joined a team from the get-go and
+          worked closely with the designers to bring great user experiences to
+          life. If you believe a modern, performant, and accessible front-end
+          foundation for your UI is worth investing in, then you're already my
+          favorite client!
         </p>
         <p>
-          Do you have a project that could use my front-end skills?
-          My favorite projects have been those where I’ve joined a team from the get-go and worked closely with the designers to bring great user experiences to life.
-          If you believe a modern, performant, and accessible front-end foundation for your UI is worth investing in, then you're already my favorite client!
+          Do you have a project that could use my front-end skills? My favorite
+          projects have been those where I’ve joined a team from the get-go and
+          worked closely with the designers to bring great user experiences to
+          life. If you believe a modern, performant, and accessible front-end
+          foundation for your UI is worth investing in, then you're already my
+          favorite client!
         </p>
       </div>
-      <form name="contact" data-netlify="true" class="contact__form">
-        <div class="form-element">
-          <input type="text" name="name" placeholder="Full name">
-        </div>
-        <div class="form-element">
-          <input type="email" name="email" placeholder="Email">
-        </div>
-        <div class="form-element">
-          <textarea name="message" placeholder="Here your message"></textarea>
-        </div>
-        <button type="submit">Send</button>
-      </form>
     </div>
   </div>
 </template>
@@ -39,9 +33,9 @@ export default {
         { name: 'description', content: 'Just send me an email' },
         { name: 'keywords', content: 'frontend, freelance, work' }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
